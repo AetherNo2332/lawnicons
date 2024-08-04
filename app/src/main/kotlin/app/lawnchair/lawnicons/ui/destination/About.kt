@@ -33,8 +33,8 @@ import app.lawnchair.lawnicons.ui.components.core.Card
 import app.lawnchair.lawnicons.ui.components.core.LawniconsScaffold
 import app.lawnchair.lawnicons.ui.components.core.SimpleListRow
 import app.lawnchair.lawnicons.ui.theme.LawniconsTheme
+import app.lawnchair.lawnicons.ui.util.Constants
 import app.lawnchair.lawnicons.ui.util.Contributor
-import app.lawnchair.lawnicons.ui.util.Destinations
 import app.lawnchair.lawnicons.ui.util.ExternalLink
 import app.lawnchair.lawnicons.ui.util.PreviewLawnicons
 import app.lawnchair.lawnicons.util.appIcon
@@ -43,21 +43,50 @@ private val externalLinks = listOf(
     ExternalLink(
         iconResId = R.drawable.github_foreground,
         name = R.string.github,
-        url = "https://github.com/LawnchairLauncher/lawnicons",
+        url = Constants.GITHUB,
     ),
     ExternalLink(
-        iconResId = R.drawable.request_icons_icon,
+        iconResId = R.drawable.icon_request_app,
         name = R.string.request_form,
-        url = "https://forms.gle/xt7sJhgWEasuo9TR9",
+        url = Constants.ICON_REQUEST_FORM,
     ),
 )
 
 private val coreContributors = listOf(
     Contributor(
-        name = "paphonb",
+        name = "Suphon T.",
         username = "paphonb",
         photoUrl = "https://avatars.githubusercontent.com/u/8080853",
         socialUrl = "https://x.com/paphonb",
+        descriptionRes = R.string.contribution_core,
+    ),
+    Contributor(
+        name = "SuperDragonXD",
+        username = "SuperDragonXD",
+        photoUrl = "https://avatars.githubusercontent.com/u/70206496",
+        socialUrl = "https://github.com/SuperDragonXD",
+        descriptionRes = R.string.contribution_core,
+    ),
+    Contributor(
+        name = "Gleb",
+        username = "x9136",
+        photoUrl = "https://avatars.githubusercontent.com/u/60105060",
+        socialUrl = "https://github.com/x9136",
+        descriptionRes = R.string.contribution_icons,
+    ),
+    Contributor(
+        name = "Grabster",
+        username = "Grabstertv",
+        photoUrl = "https://avatars.githubusercontent.com/u/49114212",
+        socialUrl = "https://x.com/grabstertv",
+        descriptionRes = R.string.contribution_icons,
+    ),
+    Contributor(
+        name = "Zongle Wang",
+        username = "Goooler",
+        photoUrl = "https://avatars.githubusercontent.com/u/10363352",
+        socialUrl = "https://androiddev.social/@Goooler",
+        descriptionRes = R.string.contribution_deps,
     ),
 )
 
@@ -79,7 +108,8 @@ private val specialThanks = listOf(
 @Composable
 fun About(
     onBack: () -> Unit,
-    onNavigate: (String) -> Unit,
+    onNavigateToContributors: () -> Unit,
+    onNavigateToAcknowledgements: () -> Unit,
     isExpandedScreen: Boolean,
     modifier: Modifier = Modifier,
 ) {
@@ -157,6 +187,7 @@ fun About(
                             photoUrl = it.photoUrl,
                             profileUrl = it.socialUrl,
                             divider = index != coreContributors.lastIndex,
+                            description = it.descriptionRes?.let { stringResource(id = it) },
                         )
                     }
                 }
@@ -164,7 +195,7 @@ fun About(
             item {
                 Card(modifier = Modifier.padding(top = 16.dp)) {
                     SimpleListRow(
-                        onClick = { onNavigate(Destinations.CONTRIBUTORS) },
+                        onClick = onNavigateToContributors,
                         label = stringResource(id = R.string.see_all_contributors),
                         divider = false,
                     )
@@ -190,7 +221,7 @@ fun About(
             item {
                 Card(modifier = Modifier.padding(top = 16.dp)) {
                     SimpleListRow(
-                        onClick = { onNavigate(Destinations.ACKNOWLEDGEMENTS) },
+                        onClick = onNavigateToAcknowledgements,
                         label = stringResource(id = R.string.acknowledgements),
                         divider = false,
                     )
@@ -207,6 +238,7 @@ private fun AboutPreview() {
         About(
             {},
             {},
+            {},
             false,
         )
     }
@@ -217,6 +249,7 @@ private fun AboutPreview() {
 private fun AboutPreviewExpanded() {
     LawniconsTheme {
         About(
+            {},
             {},
             {},
             true,

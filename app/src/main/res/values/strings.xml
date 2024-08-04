@@ -12,17 +12,16 @@
     <!-- We don't currently provide a singular form, because it's always guaranteed that there will be atleast 2 or more icons. -->
     <string name="search_bar_hint">Search through %d icons</string>
 
-    <string name="search_bar_choose_icon">Pick an icon</string>
+    <string name="search_bar_icon_picker">Pick an icon</string>
+
+    <!-- Search tooltip -->
+    <string name="search">Search</string>
 
     <!-- Text shown when there are no search results-->
     <string name="no_items_found">%s not found</string>
 
-    <!-- Popup menu in search bar -->
-    <!-- Popup menu item that links to the Acknowledgements page -->
-    <string name="acknowledgements">Acknowledgements</string>
-    <!-- Popup menu item that links to the About page -->
-
     <!-- About page -->
+    <string name="about">About</string>
 
     <!-- External Links -->
     <!-- GitHub repository link-->
@@ -40,6 +39,13 @@
 
     <!-- View on GitHub link -->
     <string name="view_on_github">View on GitHub</string>
+    <!-- Share button on icon info popup -->
+    <string name="share">Share details</string>
+
+    <!-- Contribution -->
+    <string name="contribution_core">Core app</string>
+    <string name="contribution_icons">Icons</string>
+    <string name="contribution_deps">Dependencies</string>
 
     <!-- Special Thanks section of About page -->
     <!-- Special Thanks label -->
@@ -49,6 +55,9 @@
     <!-- Subtitle displayed below the user who named the app -->
     <string name="special_thanks_name">For naming the app</string>
 
+    <!-- List item that links to the Acknowledgements page -->
+    <string name="acknowledgements">Open-source licenses</string>
+
     <!-- Icon Information Popup window -->
 
     <!-- Name -->
@@ -56,8 +65,23 @@
     <!-- Drawable prefix -->
     <string name="drawable">Drawable</string>
     <!-- Package prefix -->
-    <string name="package_prefix">Package name</string>
+    <string name="component">Component name</string>
 
-    <string name="about">About</string>
+    <!-- Mapped components -->
+    <string name="mapped_components">Mapped components</string>
+    <!-- Outdated icon info -->
     <string name="icon_info_outdated_warning">If the icon is outdated due to rebranding, create an issue on GitHub.</string>
+
+    <!-- Chevron a11y description -->
+    <string name="toggle_visibility_of_contents">Toggle visibility of contents</string>
+
+    <!-- Request icons button -->
+    <string name="request_icons">Request icons</string>
+
+    <string name="copy_to_clipboard">Copy to clipboard</string>
+    <string name="copied_text">Copied text</string>
+
+    <!-- Snackbar content -->
+    <string name="snackbar_request_too_large">Copied icon request details to clipboard. To request them, submit the details into the form.</string>
+    <string name="snackbar_use_fallback_link">Open form</string>
 </resources>
